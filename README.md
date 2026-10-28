@@ -49,8 +49,8 @@ end
 
 ## Prevention:
 
-<span style="font-size: 15.5px;">To prevent this, fix unclear code instead of commenting it: use full descriptive names, replace magic numbers with named constants, and extract commented blocks into well-named single-purpose functions. Keep comments only for explaining why, and if deleting a comment loses no information, delete it.</span> 
-=======
+To prevent this, fix unclear code instead of commenting it: use full descriptive names, replace magic numbers with named constants, and extract commented blocks into well-named single-purpose functions. Keep comments only for explaining why, and if deleting a comment loses no information, delete it.
+
 
 ## Terms:
 
