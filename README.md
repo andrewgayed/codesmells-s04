@@ -11,12 +11,46 @@
 
 <span style="font-size: 15.5px;">**Issues?:**</span> Comments mask bad code with a convincing but inccorect solution.
 
-## Code Examples:
+## Code Example:
 
+```javascript
+// collision chekcing
+for (let bullet of my.sprite.bullet) {
+    if (enemyShip.visible && this.collides(enemyShip, bullet, 0.5)) {
+        this.explosion = this.add.sprite(enemyShip.x, enemyShip.y, "deathResult").
+        setScale(0.25).play("explosion");
+        // clear the bullets out
+        bullet.y = -100;
+        enemyShip.visible = false;
+        enemyShip.x = -100;
+        ...
+```
 
 ## Refactored:
 
+Fowler says Refactoring method **Extract Function** can be used:
+
+```javascript
+handleShipDestruction(enemyShip) {
+    this.add.sprite(enemyShip.x, enemyShip.y, "deathResult")
+            .setScale(0.25)
+            .play("explosion");
+            
+    this.moveOffScreen(enemyShip);
+}
+
+recycleBullet(bullet) {
+    this.moveOffScreen(bullet);
+}
+
+moveOffScreen(gameObject) {
+    gameObject.y = -100; 
+}
+```
+
 ## Prevention 
+
+Extract Function: Whenever you feel the need to write comments to explain big functions or logic, you should instead break the code into separate smaller fuctions.
 
 ### **2. Long Function:**
 
@@ -34,5 +68,3 @@
 
 
 
-
-### Across Language:
