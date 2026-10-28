@@ -50,7 +50,9 @@ moveOffScreen(gameObject) {
 
 ## Prevention 
 
-Extract Function: Whenever you feel the need to write comments to explain big functions or logic, you should instead break the code into separate smaller fuctions.
+Extract Methods: Whenever you feel the need to write comments to explain big functions or logic, you should instead break the code into separate smaller fuctions.
+
+Replacing Magic Numbers with Constants: When random numbers are in code, it could be better to assign that number to a constant so the purpose of the number is obvious.
 
 ### **2. Long Function:**
 
