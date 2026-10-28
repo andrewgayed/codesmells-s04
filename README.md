@@ -12,8 +12,6 @@
 <span style="font-size: 15.5px;">**Issues?:**</span> Comments mask bad code with a convincing but inccorect solution.
 
 ## Code Example:
-
-<<<<<<< HEAD
 ```lua
 -- check if player can buy item
 local function check(p, i)
