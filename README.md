@@ -1,8 +1,6 @@
 # Section Assignment #4: Code Smells
 <span style="font-size: 18px;">Members: Anthony Rastellini, Andrew Gayed, Pius Castrillox</span>
 
-### Introduction (Code Smells):
-
 ### **1. Comments:** 
 
 <span style="font-size: 15.5px;">**What?:**</span> Comments in code usually point to a deeper problem of badly written code.
