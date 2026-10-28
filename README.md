@@ -11,8 +11,9 @@
 
 <span style="font-size: 15.5px;">**Issues?:**</span> Comments mask bad code with a convincing but inccorect solution.
 
-## Code Examples:
+## Code Example:
 
+<<<<<<< HEAD
 ```lua
 -- check if player can buy item
 local function check(p, i)
@@ -30,10 +31,24 @@ local function check(p, i)
         return false
     end
 end
+=======
+```javascript
+// collision chekcing
+for (let bullet of my.sprite.bullet) {
+    if (enemyShip.visible && this.collides(enemyShip, bullet, 0.5)) {
+        this.explosion = this.add.sprite(enemyShip.x, enemyShip.y, "deathResult").
+        setScale(0.25).play("explosion");
+        // clear the bullets out
+        bullet.y = -100;
+        enemyShip.visible = false;
+        enemyShip.x = -100;
+        ...
+>>>>>>> 5d03dc79988d7e5d92b0d67db5cc63051dc250c4
 ```
 
 ## Refactored:
 
+<<<<<<< HEAD
 ```lua
 local VIP_DISCOUNT_MULTIPLIER = 0.8
 
@@ -53,6 +68,31 @@ end
 ## Prevention:
 
 <span style="font-size: 15.5px;">To prevent this, fix unclear code instead of commenting it: use full descriptive names, replace magic numbers with named constants, and extract commented blocks into well-named single-purpose functions. Keep comments only for explaining why, and if deleting a comment loses no information, delete it.</span> 
+=======
+Fowler says Refactoring method **Extract Function** can be used:
+
+```javascript
+handleShipDestruction(enemyShip) {
+    this.add.sprite(enemyShip.x, enemyShip.y, "deathResult")
+            .setScale(0.25)
+            .play("explosion");
+            
+    this.moveOffScreen(enemyShip);
+}
+
+recycleBullet(bullet) {
+    this.moveOffScreen(bullet);
+}
+
+moveOffScreen(gameObject) {
+    gameObject.y = -100; 
+}
+```
+
+## Prevention 
+>>>>>>> 5d03dc79988d7e5d92b0d67db5cc63051dc250c4
+
+Extract Function: Whenever you feel the need to write comments to explain big functions or logic, you should instead break the code into separate smaller fuctions.
 
 ### **2. Long Function:**
 
@@ -168,5 +208,3 @@ end
 
 <span style="font-size: 15.5px;">Give each function one job and name it after that job. If you add a comment to label a section inside a function, extract that section into its own function. If a function won't fit on one screen or you can't describe it without "and", split it. Have the top-level function only call the smaller ones in order.</span> 
 
-
-### Across Language:
