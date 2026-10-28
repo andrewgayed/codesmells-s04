@@ -11,6 +11,13 @@
 
 <span style="font-size: 15.5px;">**Issues?:**</span> Comments mask bad code with a convincing but inccorect solution.
 
+## Code Examples:
+
+
+## Refactored:
+
+## Prevention 
+
 ### **2. Long Function:**
 
 <span style="font-size: 15.5px;">**What?:**</span>  
@@ -19,11 +26,12 @@
 
 <span style="font-size: 15.5px;">**Issues?:**</span>
 
-### Prevention and Refactoring:
+## Code Examples:
 
+## Refactored:
 
+## Prevention:
 
-### Code Examples:
 
 
 
