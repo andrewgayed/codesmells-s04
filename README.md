@@ -20,11 +20,11 @@
 
 ### **2. Long Function:**
 
-<span style="font-size: 15.5px;">**What?:**</span>  
+<span style="font-size: 15.5px;">**What?: Function that is too long and performs multiple tasks making it difficult to understand.**</span>  
 
-<span style="font-size: 15.5px;">**Causes?:**</span> 
+<span style="font-size: 15.5px;">**Causes?: It happens when a function handles a lot of responsibilities without breaking them inso smaller ones or reusable functions.**</span> 
 
-<span style="font-size: 15.5px;">**Issues?:**</span>
+<span style="font-size: 15.5px;">**Issues?: Long functions are harder to read and maintain and they are more likely to introduce bugs.**</span>
 
 ## Code Examples:
 
