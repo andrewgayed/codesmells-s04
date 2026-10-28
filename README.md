@@ -29,7 +29,7 @@ local function check(p, i)
         return false
     end
 end
-=======
+```
 
 ## Refactored:
 
@@ -54,7 +54,7 @@ end
 <span style="font-size: 15.5px;">To prevent this, fix unclear code instead of commenting it: use full descriptive names, replace magic numbers with named constants, and extract commented blocks into well-named single-purpose functions. Keep comments only for explaining why, and if deleting a comment loses no information, delete it.</span> 
 =======
 
-## Prevention 
+## Terms:
 
 Extract Methods: Whenever you feel the need to write comments to explain big functions or logic, you should instead break the code into separate smaller fuctions.
 
