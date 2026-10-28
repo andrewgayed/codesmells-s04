@@ -70,107 +70,61 @@ Replacing Magic Numbers with Constants: When random numbers are in code, it coul
 
 ## Code Examples:
 
-```lua
-local function purchaseItem(player, item)
-    -- validate
-    if not item then
-        warn("No item")
-        return false
-    end
-    if player.Character == nil then
-        return false
-    end
+```javascript
+// processing an order
+void processindOrder()
+{
+   cout << "Processing the order ... " << endl;
 
-    -- price
-    local price = item.Price
-    if player.VIP then
-        price = price * 0.8
-    end
 
-    -- payment
-    local coins = player.leaderstats.Coins
-    if coins.Value < price then
-        player.PlayerGui.Shop.ErrorLabel.Text = "Not enough coins"
-        return false
-    end
-    coins.Value = coins.Value - price
+   //calculating
+   double total = 100.0;
+   total =+ total * 0.08;
 
-    -- give item
-    local clone = item.Tool:Clone()
-    clone.Parent = player.Backpack
 
-    -- update UI
-    player.PlayerGui.Shop.CoinsLabel.Text = tostring(coins.Value)
+   cout << "Processing payment of $" << total << endl;
+   cout << "Printing receipt..." << endl;
 
-    -- save
-    local success, err = pcall(function()
-        DataStore:SetAsync(player.UserId, coins.Value)
-    end)
-    if not success then
-        warn(err)
-    end
 
-    return true
-end
+}
 ```
+
 
 ## Refactored:
 
-```lua
-local VIP_DISCOUNT_MULTIPLIER = 0.8
+Fowler says Refactoring method **Extract Function** can be used:
 
-local function isValidPurchase(player, item)
-    return item ~= nil and player.Character ~= nil
-end
 
-local function getPriceForPlayer(player, item)
-    if player.VIP then
-        return item.Price * VIP_DISCOUNT_MULTIPLIER
-    end
-    return item.Price
-end
+```javascript
+void validateOrder() {
+   cout << "Validating order..." << endl;
+}
 
-local function chargePlayer(player, price)
-    local coins = player.leaderstats.Coins
-    if coins.Value < price then
-        return false
-    end
-    coins.Value -= price
-    return true
-end
 
-local function giveItem(player, item)
-    item.Tool:Clone().Parent = player.Backpack
-end
+double calculateTotal(double price) {
+   return price + price * 0.08;
+}
 
-local function updateShopUI(player)
-    player.PlayerGui.Shop.CoinsLabel.Text = tostring(player.leaderstats.Coins.Value)
-end
 
-local function saveCoins(player)
-    local success, err = pcall(function()
-        DataStore:SetAsync(player.UserId, player.leaderstats.Coins.Value)
-    end)
-    if not success then
-        warn(err)
-    end
-end
+void processPayment(double total) {
+   cout << "Processing payment of $" << total << endl;
+}
 
-local function purchaseItem(player, item)
-    if not isValidPurchase(player, item) then
-        return false
-    end
-    if not chargePlayer(player, getPriceForPlayer(player, item)) then
-        return false
-    end
-    giveItem(player, item)
-    updateShopUI(player)
-    saveCoins(player)
-    return true
-end
+
+void printReceipt() {
+   cout << "Printing receipt..." << endl;
+}
+
+
+void processOrder() {
+   validateOrder();
+   double total = calculateTotal(100.0);
+   processPayment(total);
+   printReceipt();
+}
 ```
+
 
 ## Prevention:
 
-<span style="font-size: 15.5px;">Give each function one job and name it after that job. If you add a comment to label a section inside a function, extract that section into its own function. If a function won't fit on one screen or you can't describe it without "and", split it. Have the top-level function only call the smaller ones in order.</span> 
-
+<span style="font-size: 15.5px;">Break down long functions into smaller functions while having each function perform one specific task. Also it is a good idea to name the function meaningful names as they describe what they do.</span> 
